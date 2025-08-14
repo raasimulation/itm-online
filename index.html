@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install to Manifest</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>➗</text></svg>" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <iframe src="silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="allineed.mp3" type="audio/mp3">
+    </audio>
+    <video id="webcam" autoplay playsinline></video>
+    <div id="links">
+        <div class="link-active">Home</div>/
+        <a href="https://docs.google.com/document/d/1s8NDaeg56IrUYK_9KFaBY20ek5Q6gygt45kB4YjqAk0/edit?usp=sharing"
+            target="_blank">
+            <div class="link" style="cursor: alias;">Syllabus</div>
+        </a>/
+        <a href="links.html">
+            <div class="link">Links</div>
+        </a>/
+        <div class="link">Assignments</div> /
+        <div class="link">Resources</div>
+    </div>
+    <div class="title" id="title">
+        <div class="line">INSTALL</div>
+        <div class="line">TO</div>
+        <div class="line">MANIFEST</div>
+    </div>
+    <div class="schedule">FALL 2025 / Mon & Wed / 4:00 - 6:50 PM</div>
+
+    <script>
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                document.getElementById("webcam").srcObject = stream;
+            } catch (err) {
+                console.error("Error accessing webcam:", err);
+            }
+        }
+
+        startWebcam();
+
+        const title = document.getElementById('title');
+        const lines = title.querySelectorAll('.line');
+        let allChars = [];
+
+        function wrapChars() {
+            lines.forEach(line => {
+                const chars = line.textContent.split('');
+                line.innerHTML = chars.map(char =>
+                    `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
+                ).join('');
+            });
+
+            allChars = Array.from(title.querySelectorAll('.char'));
+        }
+
+        wrapChars();
+
+        title.addEventListener('mouseenter', () => {
+            allChars.forEach(char => {
+                const x = (Math.random() - 0.5) * 100;
+                const y = (Math.random() - 0.5) * 100;
+                const rotate = (Math.random() - 0.5) * 45;
+                const scale = Math.random() * 0.5 + 0.8;
+
+                char.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
+                char.style.opacity = Math.random() * 0.5 + 0.7;
+            });
+        });
+
+        title.addEventListener('mouseleave', () => {
+            allChars.forEach(char => {
+                char.style.transform = 'translate(0px, 0px) rotate(0deg) scale(1)';
+                char.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+
+</html>

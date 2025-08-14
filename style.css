@@ -1,0 +1,79 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transform: scaleX(-1);
+    display: block;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    font-size: 240px;
+    mix-blend-mode:difference;
+    line-height: 1.2;
+}
+
+.title .line {
+    display: block;
+    white-space: nowrap;
+}
+
+.title .char {
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.schedule {
+    position: absolute;
+    text-align: center;
+    bottom: 5%;
+    color: white;
+    font-weight: 200;
+    mix-blend-mode: exclusion;
+}
+
+.schedule {
+    font-size: 40px;
+    -webkit-text-stroke: 0.7px black;
+}
+
+#links {
+    position: absolute;
+    top: 5%;
+    display: flex;
+    gap: 10px;
+    font-size: 40px;
+    -webkit-text-stroke: 0.7px black;
+    color: white;
+}
+
+.link:hover {
+    cursor: crosshair;
+    color: greenyellow;
+}
+
+.link-active {
+    color: greenyellow;        }
