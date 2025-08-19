@@ -32,7 +32,7 @@ video {
     color: white;
     font-weight: 200;
     font-size: 240px;
-    mix-blend-mode:difference;
+    mix-blend-mode: difference;
     line-height: 1.2;
 }
 
@@ -76,4 +76,24 @@ video {
 }
 
 .link-active {
-    color: greenyellow;        }
+    color: greenyellow;
+}
+
+#content {
+    flex-direction: column;
+    top: 12%;
+    position: absolute;
+    display: flex;
+        text-align: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 40px;
+    color: #bbb;
+    overflow-y: scroll;
+}
+
+.description {
+    font-size: 20px;
+    width: 50%;
+    padding-bottom: 32px;
+}
