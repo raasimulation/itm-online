@@ -64,7 +64,7 @@ video {
     position: absolute;
     top: 5%;
     display: flex;
-    gap: 10px;
+    gap: 32px;
     font-size: 40px;
     -webkit-text-stroke: 0.7px black;
     color: white;
@@ -84,7 +84,7 @@ video {
     top: 12%;
     position: absolute;
     display: flex;
-        text-align: center;
+    text-align: center;
     align-items: center;
     gap: 10px;
     font-size: 40px;
@@ -96,4 +96,32 @@ video {
     font-size: 20px;
     width: 50%;
     padding-bottom: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 72px;
+  }
+
+  #links {
+    font-size: 24px;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    -webkit-text-stroke: 0px;
+  }
+
+  .schedule {
+    padding: 8px;
+    font-size: 24px;
+    mix-blend-mode: normal;
+    -webkit-text-stroke: 0px;
+  }
+
+  #content {
+    top:20%;
+    font-size: 24px;
+    overflow: scroll;
+  }
 }
